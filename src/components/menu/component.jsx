@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { MenuItem } from "../menu-item/component";
+import { Dish } from "../dish/component";
 
 export const Menu = ({ menu }) => {
     return (
@@ -8,7 +8,7 @@ export const Menu = ({ menu }) => {
             <ul>
                 {menu.map((item) => (
                     <li>
-                        <MenuItem item={item} />
+                        <Dish dish={item} />
                     </li>
                 ))}
             </ul>

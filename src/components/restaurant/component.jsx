@@ -2,7 +2,7 @@
 import { Menu } from "../menu/component";
 import { Reviews } from "../reviews/component";
 
-export const RestaurantBlock = ({ restaurant }) => {
+export const Restaurant = ({ restaurant }) => {
     return (
         <div>
             <h2>{restaurant.name}</h2>

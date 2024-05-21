@@ -3,7 +3,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { restaurants } from "./constants/mock";
-import { RestaurantBlock } from "./components/restaurant-block/component";
+import { Restaurant } from "./components/restaurant/component";
 import { Header } from "./components/header/component";
 import { Footer } from "./components/footer/component";
 
@@ -15,7 +15,7 @@ root.render(
   <div>
     <Header/>
     {restaurants.map((item) => (
-      <RestaurantBlock restaurant={item} />
+      <Restaurant restaurant={item} />
     ))}
     <Footer/>
   </div>
