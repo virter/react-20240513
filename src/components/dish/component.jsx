@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { Counter } from '../counter/component';
 
-const initalValue = 0;
+const initialValue = 0;
 
 const useCount = () => {
-    const [ count , setCount ] = useState(initalValue);
+    const [ count , setCount ] = useState(initialValue);
     return { count, setCount };
 };
 
