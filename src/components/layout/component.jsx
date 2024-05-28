@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+
 import { Header } from "../header/component";
 import { Footer } from "../footer/component";
 

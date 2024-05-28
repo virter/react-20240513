@@ -1,28 +1,33 @@
 /* eslint-disable react/jsx-key */
-import { useState } from "react";
 
-export const Dish = ({ dish }) => {
-    const [ count, setCount ] = useState(0);
+import { useState } from 'react';
+import { Counter } from '../counter/component';
+
+const initialValue = 0;
+
+const useCount = () => {
+    const [ count , setCount ] = useState(initialValue);
 
     const increment = () => {
-        if (count === 5) return;
         setCount(count + 1);
     };
 
     const decrement = () => {
-        if (count === 0) return;
         setCount(count - 1);
     };
 
-    const { name } = dish;
+    return { count, increment, decrement };
+};
 
+export const Dish = ({ dish }) => {
+    const { count, increment, decrement } = useCount();
+
+    const { name } = dish;
     if (!name) return;
 
     return <div>
         <span>{name}</span>
-        <br/>
-        <button onClick={decrement}>-</button>
-        <span>{count}</span>
-        <button onClick={increment}>+</button>
+        <Counter value={count} increment={increment} decrement={decrement} />
+        {count * dish.price}
     </div>;
 };

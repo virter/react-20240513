@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+
 import { Dish } from "../dish/component";
 
 export const Menu = ({ menu }) => {
