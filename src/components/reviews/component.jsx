@@ -25,8 +25,8 @@ export const Reviews = ({ reviews }) => {
         <div>
             <h3>Reviews</h3>
             <ul>
-                { reviews.map((item) => !!item.text ? (
-                    <li>
+                { reviews.map((item, index) => !!item.text ? (
+                    <li key={index}>
                         <ReviewItem item={item} />
                     </li>
                 ) : null)}
