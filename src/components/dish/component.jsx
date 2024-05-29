@@ -1,26 +1,12 @@
 /* eslint-disable react/jsx-key */
 
-import { useState } from 'react';
 import { Counter } from '../counter/component';
+import { useCount } from '../hooks/use-count';
 
 const initialValue = 0;
 
-const useCount = () => {
-    const [ count , setCount ] = useState(initialValue);
-
-    const increment = () => {
-        setCount(count + 1);
-    };
-
-    const decrement = () => {
-        setCount(count - 1);
-    };
-
-    return { count, increment, decrement };
-};
-
 export const Dish = ({ dish }) => {
-    const { count, increment, decrement } = useCount();
+    const { count, increment, decrement } = useCount({ initialValue: initialValue });
 
     const { name } = dish;
     if (!name) return;
