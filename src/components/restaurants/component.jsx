@@ -17,5 +17,15 @@ export const Restaurants = ({ restaurants }) => {
             onTabClick={setActiveRestaurantIndex}
         />
         <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
+        <Restaurant restaurant={activeRestaurant} />
     </div>;
 };
