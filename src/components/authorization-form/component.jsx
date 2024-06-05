@@ -12,16 +12,12 @@ export const AuthorizationForm = ({ onLogin, onCancel }) => {
                     padding: '3px 5px'
                 }}
                 value={name}
-                onChange={(event) => {
-                    setName(event.target.value);
-                    console.log(event.target);
-                }}
+                onChange={(event) => setName(event.target.value)}
             />
             <div style={{ margin: '10px 0px' }}>
                 <Button onClick={onCancel}>Cancel</Button>
                 <Button
                     onClick={() => {
-                        console.log(name);
                         onLogin(name);
                         setName('');
                     }
