@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 
 import { Counter } from '../counter/component';
-import { useCount } from '../hooks/use-count';
+import { useCount } from '../../hooks/use-count';
 
 const initialValue = 0;
 
