@@ -16,6 +16,7 @@ Check the render method of `Reviews`. See https://reactjs.org/link/warning-keys 
     at Layout (http://localhost:5173/src/components/layout/component.jsx:19:26)
 */
 
+import { NewReviewForm } from "../new-review-form/component";
 import { ReviewItem } from "../review-item/component";
 
 export const Reviews = ({ reviews }) => {
@@ -31,6 +32,7 @@ export const Reviews = ({ reviews }) => {
                     </li>
                 ) : null)}
             </ul>
+            <NewReviewForm />
         </div>
     );
 };
