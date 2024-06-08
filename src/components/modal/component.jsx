@@ -1,32 +1,16 @@
 import { createPortal } from 'react-dom';
 import { Button } from '../button/component';
 
+import styles from './styles.module.scss';
+
 export const Modal = ({ onClose, children }) => {
     return createPortal(
         <>
             <div
                 onClick={onClose}
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                    zIndex: 1
-                }}
+                className={styles.shadow}
             />
-            <div
-                style={{
-                    position: 'fixed',
-                    left: '50vw',
-                    top: '50vh',
-                    transform: 'translate(-50%, -50%)',
-                    backgroundColor: 'white',
-                    padding: '20px',
-                    zIndex: 2
-                }}
-            >
+            <div className={styles.modal}>
                 <Button onClick={onClose}>X</Button>
                 {children}
             </div>

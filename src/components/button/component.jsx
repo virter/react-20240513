@@ -1,16 +1,19 @@
+import classNames from 'classnames';
 import { THEMES } from '../../context/theme/constants';
 import { useTheme } from '../../context/theme/hooks';
+
+import styles from './styles.module.scss';
 
 export const Button = ({ children, onClick, disabled }) => {
     const { theme } = useTheme();
 
     return (
         <button
-            style={{
-                padding: '3px 7px',
-                backgroundColor: theme === THEMES.default ? 'lightblue' : 'lightseagreen',
-                borderColor: theme === THEMES.default ? 'lightblue' : 'lightseagreen'
-            }}
+            className={classNames(styles.root, {
+                [styles.disabled]: disabled,
+                [styles.default]: theme === THEMES.default,
+                [styles.alternative]: theme === THEMES.alternative
+            })}
             onClick={onClick}
             disabled={disabled}
         >

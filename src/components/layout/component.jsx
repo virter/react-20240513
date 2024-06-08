@@ -3,17 +3,16 @@
 import { Header } from '../header/component';
 import { Footer } from '../footer/component';
 
+import styles from './styles.module.scss';
+
 export const Layout = ({ children }) => {
     return (
         <div>
             <div
                 id="modal_container"
-                style={{
-                    zIndex: 2,
-                    position: 'relative'
-                }}
+                className={styles['modal-container']}
             />
-            <div style={{ zIndex: 1 }}>
+            <div className={styles['layout-body']}>
                 <Header />
                 <div>
                     {children}
