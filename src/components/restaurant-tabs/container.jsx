@@ -6,6 +6,7 @@ import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 
 export const RestaurantTabsContainer = ({ activeRestaurantId, onTabClick }) => {
     const restaurantIds = useSelector(selectRestaurantIds);
+    if (!restaurantIds) return;
 
     return (
         <RestaurantTabs

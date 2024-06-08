@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-key */
 
-import { Menu } from '../menu/component';
-import { Reviews } from '../reviews/component';
+import { MenuContainer } from '../menu/container';
+import { ReviewsContainer } from '../reviews/container';
 
 export const Restaurant = ({ restaurant }) => {
-    const { name, menu, reviews } = restaurant;
+    const { id, name } = restaurant;
 
     return (
         <div>
             <h2>{name}</h2>
-            <Menu dishIds={menu} />
-            <Reviews reviewIds={reviews} />
+            <MenuContainer restaurantId={id} />
+            <ReviewsContainer restaurantId={id} />
         </div>
     );
 };

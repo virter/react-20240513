@@ -1,18 +1,13 @@
 /* eslint-disable react/jsx-key */
 
-import { DishContainer } from '../dish/container';
+import { DishesContainer } from '../dishes/container';
 
 export const Menu = ({ dishIds }) => {
-    if (dishIds.length === 0) return;
-
+    if (!dishIds) return;
     return (
         <div>
             <h3>Menu</h3>
-            <div>
-                { dishIds.map((id, index) => (
-                    <DishContainer key={index} id={id} />
-                ))}
-            </div>
+            <DishesContainer dishIds={dishIds} />
         </div>
     );
 };
