@@ -1,0 +1,14 @@
+.root {
+    padding: 3px 7px;
+
+    &.default {
+        background-color: lightblue;
+        border-color: lightblue;
+    }
+
+    &.alternative {
+        background-color: lightseagreen;
+        border-color: lightseagreen;
+    }
+}
+

@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { Button } from '../button/component';
 
+import styles from './styles.module.scss';
+
 export const AuthorizationForm = ({ onLogin, onCancel }) => {
     const [ name, setName ] = useState('');
 
     return (
-        <div style={{ margin: '10px 0px' }}>
+        <div className={styles.root}>
             <input
-                style={{
-                    border: '1px solid',
-                    padding: '3px 5px'
-                }}
+                className={styles.login}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
             />
-            <div style={{ margin: '10px 0px' }}>
+            <div className={styles.controls}>
                 <Button onClick={onCancel}>Cancel</Button>
                 <Button
                     onClick={() => {
