@@ -13,7 +13,7 @@ export const ReviewsContainer = ({ restaurantId }) => {
     );
 
     useEffect(() => {
-        dispatch(getReviewsByRestaurantId(restaurantId));    
+        dispatch(getReviewsByRestaurantId({ restaurantId }));
     }, [dispatch, restaurantId]);
 
     if (!reviewIds.length === 0) return;

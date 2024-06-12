@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-key */
 
-import { DishesContainer } from '../dishes/container';
+import { Dishes } from '../dishes/component';
 
 export const Menu = ({ dishIds }) => {
     if (!dishIds) return;
     return (
         <div>
             <h3>Menu</h3>
-            <DishesContainer dishIds={dishIds} />
+            <Dishes dishIds={dishIds} />;
         </div>
     );
 };

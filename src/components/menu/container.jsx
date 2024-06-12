@@ -14,7 +14,7 @@ export const MenuContainer = ({ restaurantId }) => {
     );
 
     useEffect(() => {
-        dispatch(getDishesByRestaurantId(restaurantId));    
+        dispatch(getDishesByRestaurantId({ restaurantId }));
     }, [dispatch, restaurantId]);
 
     return <Menu dishIds={dishIds} />
