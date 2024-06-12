@@ -1,22 +1,35 @@
 /* eslint-disable react/jsx-key */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RestaurantContainer } from '../restaurant/container';
 import { RestaurantTabsContainer } from '../restaurant-tabs/container';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../redux/entities/user/thunks/get-users';
+import { getRestaurants } from '../../redux/entities/restaurant/thunks/get-restaurants';
 import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 
-
 export const Restaurants = () => {
-    const [ activeRestaurantId, setActiveRestaurantId ] = useState(
-        useSelector(selectRestaurantIds)[0]
-    );
+    const restaurantIds = useSelector(selectRestaurantIds);
+
+    const [ activeRestaurantId, setActiveRestaurantId ] = useState();
+    const dispatch = useDispatch(); 
+    
+    useEffect(() => {
+        dispatch(getRestaurants());
+        dispatch(getUsers());
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (!activeRestaurantId && restaurantIds?.length) {
+            setActiveRestaurantId(restaurantIds[0]);
+        }
+    }, [restaurantIds, activeRestaurantId])
 
     return <div>
         <RestaurantTabsContainer
             activeRestaurantId={activeRestaurantId}
             onTabClick={setActiveRestaurantId}
         />
-        <RestaurantContainer activeRestaurantId={activeRestaurantId} />
+        {activeRestaurantId && <RestaurantContainer activeRestaurantId={activeRestaurantId} />}
     </div>;
 };

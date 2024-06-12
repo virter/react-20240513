@@ -4,8 +4,9 @@ import { ReviewUserContainer } from '../review-user/container';
 import styles from './styles.module.scss';
 
 export const Review = ({ review }) => {
+    if (!review) return;
+
     const { text, userId } = review;
-    console.log('review user id', userId);
 
     return (
         <div className={styles.root}>
