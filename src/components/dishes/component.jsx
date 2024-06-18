@@ -1,12 +1,12 @@
-import { DishContainer } from '../dish/container';
+import { Dish } from '../dish/component';
 
-export const Dishes = ({ dishIds }) => {
-    if (!dishIds) return;
+export const Dishes = ({ dishes }) => {
+    if (!dishes?.length) return;
 
     return (
         <div>
-            { dishIds.map((id, index) => (
-                <DishContainer key={index} id={id} />
+            { dishes.map((dish, index) => (
+                <Dish key={index} dish={dish} />
             ))}
         </div>
     );

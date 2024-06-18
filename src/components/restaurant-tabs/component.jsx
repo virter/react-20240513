@@ -3,16 +3,16 @@
 import { RestaurantTabContainer } from '../restaurant-tab/container';
 
 export const RestaurantTabs = ({
-    restaurantIds,
+    restaurants,
     activeRestaurantId,
     onTabClick
 }) => {
     return (
         <div>
-            {restaurantIds.map((id, index) => (
+            {restaurants.map(({ name, id }) => (
                 <RestaurantTabContainer
-                    key={index}
-                    id={id}
+                    key={id}
+                    title={name}
                     onClick={() => onTabClick(id)}
                     isActive={activeRestaurantId === id}
                 />

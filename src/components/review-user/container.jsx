@@ -1,11 +1,11 @@
-/* eslint-disable react/jsx-key */
-
-import { useSelector } from 'react-redux';
+import { useGetUsersQuery } from '../../redux/service/api';
+import { selectEntityFromResult } from '../../redux/service/api/selectors';
 import { ReviewUser } from './component';
-import { selectUserById } from '../../redux/entities/user/selectors'
 
 export const ReviewUserContainer = ({ id, ...props }) => {
-    const user = useSelector((state) => selectUserById(state, id));
+    const { data: user } = useGetUsersQuery(undefined, {
+        selectFromResult: selectEntityFromResult(id)
+    });
 
     if (!user) return;
 

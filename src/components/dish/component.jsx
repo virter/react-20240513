@@ -11,9 +11,11 @@ export const Dish = ({ dish }) => {
     const { name } = dish;
     if (!name) return;
 
-    return <div>
-        <span>{name}</span>
-        <Counter value={count} increment={increment} decrement={decrement} />
-        {count * dish.price}
-    </div>;
+    return (
+        <div>
+            <span>{name}</span>
+            <Counter value={count} increment={increment} decrement={decrement} />
+            {count * dish.price}
+        </div>
+    );
 };
