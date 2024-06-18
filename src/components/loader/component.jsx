@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 export const Loader = ({ size = 200 }) => {
     return (
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width={size} height={size} style={styles.root}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width={size} height={size} className={styles.svg}>
                 <g>
                     <g transform="rotate(0 50 50)">
                         <rect fill="#fe718d" height="12" width="6" ry="6" rx="3" y="24" x="47">
