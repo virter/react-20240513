@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../button/component';
 
-export const Tab = ({ title, onClick, isActive }) => {
+export const Tab = ({ title, to }) => {
     return (
-        <Button onClick={onClick} disabled={isActive}>
+        <Link to={to}>
             {title}
-        </Button>
+        </Link>
     );
 };

@@ -1,21 +1,27 @@
-import { ThemeContextProvider } from './context/theme/provider';
-import { UserContextProvider } from './context/user/provider';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { HomePage } from './pages/home';
+import { RestaurantsPage } from './pages/restaurants';
+import { RestaurantPage } from './pages/restaurant';
+import { MenuPage } from './pages/menu';
+import { ReviewsPage } from './pages/reviews';
+import { DishPage } from './pages/dish';
 import { Layout } from './components/layout/component';
-import { restaurants } from "./constants/mock";
-import { Restaurants } from "./components/restaurants/component";
-import { Provider } from 'react-redux';
-import { store } from './redux';
+
+const router = createBrowserRouter([
+    { 
+        path: '/',
+        element: <Layout />,
+        children: [
+            { index: true, element: <HomePage />},
+            { path: 'restaurants', element: <RestaurantsPage /> },
+            { path: 'restaurants/:restaurantId', element: <RestaurantPage /> },
+            { path: 'restaurants/:restaurantId/menu', element: <MenuPage /> },
+            { path: 'restaurants/:restaurantId/reviews', element: <ReviewsPage /> },
+            { path: 'dish/:dishId', element: <DishPage /> },
+        ]
+    }
+]);
 
 export const App = () => {
-    return (
-        <Provider store={store}>
-            <ThemeContextProvider>
-                <UserContextProvider>
-                    <Layout>
-                        <Restaurants />
-                    </Layout>
-                </UserContextProvider>
-            </ThemeContextProvider>
-        </Provider>
-    );
+    return <RouterProvider router={router} />;
 }

@@ -3,16 +3,26 @@
 import { MenuContainer } from '../menu/container';
 import { NewReviewFormContainer } from '../new-review-form/container';
 import { ReviewsContainer } from '../reviews/container';
+import { Tab } from '../tab/component';
 
 export const Restaurant = ({ restaurant }) => {
-    const { id, name } = restaurant;
+    const {
+        id,
+        name,
+        img,
+        description,
+    } = restaurant;
 
     return (
         <div>
             <h2>{name}</h2>
-            <MenuContainer restaurantId={id} />
-            <ReviewsContainer restaurantId={id} />
-            <NewReviewFormContainer restaurantId={id} />
+            <p>{description}</p>
+            {img && <img src={img} width="400"/>}
+
+            <div>
+                <Tab title='Mеню' to={`/restaurants/${id}/menu`} />
+                <Tab title='Отзывы' to={`/restaurants/${id}/reviews`} />
+            </div>
         </div>
     );
 };

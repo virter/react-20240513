@@ -3,22 +3,34 @@
 import { Header } from '../header/component';
 import { Footer } from '../footer/component';
 
-import styles from './styles.module.scss';
+import { ThemeContextProvider } from '../../context/theme/provider';
+import { UserContextProvider } from '../../context/user/provider';
+import { store } from '../../redux';
+import { Provider } from 'react-redux';
 
-export const Layout = ({ children }) => {
+import styles from './styles.module.scss';
+import { Outlet } from 'react-router-dom';
+
+export const Layout = () => {
     return (
-        <div>
-            <div
-                id="modal_container"
-                className={styles['modal-container']}
-            />
-            <div className={styles['layout-body']}>
-                <Header />
-                <div>
-                    {children}
-                </div>
-                <Footer />
-            </div>
-        </div>
+        <Provider store={store}>
+            <ThemeContextProvider>
+                <UserContextProvider>
+                    <div>
+                        <div
+                            id="modal_container"
+                            className={styles['modal-container']}
+                        />
+                        <div className={styles['layout-body']}>
+                            <Header />
+                            <div>
+                                <Outlet />
+                            </div>
+                            <Footer />
+                        </div>
+                    </div>
+                </UserContextProvider>
+            </ThemeContextProvider>
+        </Provider>
     );
 }

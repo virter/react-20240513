@@ -4,7 +4,7 @@ import { useGetRestaurantsQuery } from '../../redux/service/api';
 import { Loader } from '../loader/component';
 import { RestaurantTabs } from './component';
 
-export const RestaurantTabsContainer = ({ activeRestaurantId, onTabClick }) => {
+export const RestaurantTabsContainer = () => {
     const { data: restaurants, isLoading } = useGetRestaurantsQuery();
 
     if (isLoading) {
@@ -16,10 +16,6 @@ export const RestaurantTabsContainer = ({ activeRestaurantId, onTabClick }) => {
     }
 
     return (
-        <RestaurantTabs
-            restaurants={restaurants}
-            activeRestaurantId={activeRestaurantId}
-            onTabClick={onTabClick}
-        />
+        <RestaurantTabs restaurants={restaurants} />
     );
 }
