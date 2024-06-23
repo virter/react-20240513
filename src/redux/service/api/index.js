@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { BASE_ENDPOINT } from "../../../constants/endpoints";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BASE_ENDPOINT } from '../../../constants/endpoints';
 
 export const apiService = createApi({
     reducerPath: 'api',
@@ -8,19 +8,29 @@ export const apiService = createApi({
     endpoints: (builder) => builder.query({
         getRestaurants: builder.query({
             query: () => ({
-                url: "restaurants",
+                url: 'restaurants',
+            }),
+        }),
+        getRestaurantById: builder.query({
+            query: (restaurantId) => ({
+                url: `restaurant/${restaurantId}`,
             }),
         }),
         getDishesByRestaurantId: builder.query({
             query: (restaurantId) => ({
-                url: "dishes",
-                params: { restaurantId }
+                url: 'dishes',
+                params: { restaurantId },
+            }),
+        }),
+        getDishById: builder.query({
+            query: (dishId) => ({
+                url: `dish/${dishId}`,
             }),
         }),
         getReviewsByRestaurantId: builder.query({
             query: (restaurantId) => ({
-                url: "reviews",
-                params: { restaurantId }
+                url: 'reviews',
+                params: { restaurantId },
             }),
             providesTags: (result, _, restaurantId) =>
                 result
@@ -32,7 +42,7 @@ export const apiService = createApi({
         }),
         getUsers: builder.query({
             query: () => ({
-                url: "users",
+                url: 'users',
             }),
         }),
         createReview: builder.mutation({
@@ -52,7 +62,10 @@ export const apiService = createApi({
                 body: review,
             }),
             invalidatesTags: (result, _, review) => [
-                { type: 'Review', id: review.id },
+                {
+                    type: 'Review',
+                    id: review.id,
+                },
             ],
         }),
     }),
@@ -60,7 +73,9 @@ export const apiService = createApi({
 
 export const {
     useGetRestaurantsQuery,
+    useGetRestaurantByIdQuery,
     useGetDishesByRestaurantIdQuery,
+    useGetDishByIdQuery,
     useGetReviewsByRestaurantIdQuery,
     useGetUsersQuery,
     useCreateReviewMutation,

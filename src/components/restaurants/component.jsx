@@ -1,17 +1,11 @@
 /* eslint-disable react/jsx-key */
 
 import { useState } from 'react';
-import { RestaurantContainer } from '../restaurant/container';
 import { RestaurantTabsContainer } from '../restaurant-tabs/container';
 
 export const Restaurants = () => {
-    const [ activeRestaurantId, setActiveRestaurantId ] = useState();
-
     return <div>
-        <RestaurantTabsContainer
-            activeRestaurantId={activeRestaurantId}
-            onTabClick={setActiveRestaurantId}
-        />
-        {activeRestaurantId && <RestaurantContainer id={activeRestaurantId} />}
+        <RestaurantTabsContainer/>
+        {/*{activeRestaurantId && <RestaurantContainer id={activeRestaurantId} />}*/}
     </div>;
 };

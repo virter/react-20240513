@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Dish } from '../dish/component';
 
 export const Dishes = ({ dishes }) => {
@@ -5,9 +6,16 @@ export const Dishes = ({ dishes }) => {
 
     return (
         <div>
-            { dishes.map((dish, index) => (
-                <Dish key={index} dish={dish} />
-            ))}
+            { dishes.map((dish, index) => {
+                const { id, name } = dish;
+                return (
+                    <div key={index}>
+                        <Link to={`/dish/${id}`}>
+                            {name}
+                        </Link>
+                    </div>
+                );
+            })}
         </div>
     );
 }
