@@ -1,0 +1,15 @@
+.link {
+    font-family: Arial;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px;
+
+    &.active {
+        font-weight: bold;
+        color: orange;
+        border: 1px solid orange;
+    }
+}

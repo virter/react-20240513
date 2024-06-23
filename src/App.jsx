@@ -1,6 +1,6 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { HomePage } from './pages/home';
-import { RestaurantsPage } from './pages/restaurants';
+import { RestaurantsPage } from './pages/restaurants/restaurants';
 import { RestaurantPage } from './pages/restaurant';
 import { MenuPage } from './pages/menu';
 import { ReviewsPage } from './pages/reviews';
@@ -13,10 +13,22 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
             { index: true, element: <HomePage />},
-            { path: 'restaurants', element: <RestaurantsPage /> },
-            { path: 'restaurants/:restaurantId', element: <RestaurantPage /> },
-            { path: 'restaurants/:restaurantId/menu', element: <MenuPage /> },
-            { path: 'restaurants/:restaurantId/reviews', element: <ReviewsPage /> },
+            {
+                path: '/restaurants',
+                element: <RestaurantsPage />,
+                children: [
+                    { index: true, element: <div>Select Restaurants</div> },
+                    {
+                        path: ':restaurantId',
+                        element: <RestaurantPage />,
+                        children: [
+                            { index: true, element: <Navigate to="menu" /> },
+                            { path: 'menu', element: <MenuPage /> },
+                            { path: 'reviews', element: <ReviewsPage /> },
+                        ]
+                    },
+                ]
+            },
             { path: 'dish/:dishId', element: <DishPage /> },
         ]
     }

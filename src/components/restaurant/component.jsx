@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-key */
 
-import { MenuContainer } from '../menu/container';
-import { NewReviewFormContainer } from '../new-review-form/container';
-import { ReviewsContainer } from '../reviews/container';
+import { Outlet } from 'react-router-dom';
 import { Tab } from '../tab/component';
 
 export const Restaurant = ({ restaurant }) => {
@@ -23,6 +21,8 @@ export const Restaurant = ({ restaurant }) => {
                 <Tab title='Mеню' to={`/restaurants/${id}/menu`} />
                 <Tab title='Отзывы' to={`/restaurants/${id}/reviews`} />
             </div>
+
+            <Outlet />
         </div>
     );
 };

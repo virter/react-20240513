@@ -13,21 +13,24 @@ export const RestaurantTabs = ({
 
     return (
         <div>
-            <div className={styles['tabs-container']}>
+            <div className={styles.tabs_containe}>
                 <input
                     value={searchValue}
                     onChange={(event) => setSearchParams({ search: event.target.value })}
                     placeholder='Фильтр'
                 />
-                {restaurants
-                    .filter(({name}) => name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1)
-                    .map(({ name, id }) => (
-                    <Tab
-                        key={id}
-                        title={name}
-                        to={`/restaurants/${id}`}
-                    />
-                ))}
+                <div className={styles.tabs_body}>
+                    {restaurants
+                        .filter(({name}) => name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1)
+                        .map(({ name, id }) => (
+                        <Tab
+                            key={id}
+                            title={name}
+                            to={`/restaurants/${id}`}
+                            position='menu'
+                        />
+                    ))}
+                </div>
             </div>
         </div> 
     );
