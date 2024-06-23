@@ -1,10 +1,19 @@
-import { Link } from 'react-router-dom';
-import { Button } from '../button/component';
+import { NavLink } from 'react-router-dom';
+import classsNames from 'classnames';
+import styles from './styles.module.scss';
 
-export const Tab = ({ title, to }) => {
+export const Tab = ({ title, to, position = '' }) => {
     return (
-        <Link to={to}>
+        <NavLink
+            to={to}
+            className={({ isActive }) =>
+                classsNames({
+                    [styles.link]: position === 'menu',
+                    [styles.active]: position === 'menu' && isActive,
+                })
+            }
+        >
             {title}
-        </Link>
+        </NavLink>
     );
 };
