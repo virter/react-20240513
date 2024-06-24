@@ -1,18 +1,21 @@
 /* eslint-disable react/jsx-key */
 
-import { useSelector } from 'react-redux';
+import { useGetRestaurantsQuery } from '../../redux/service/api';
+import { Loader } from '../loader/component';
 import { RestaurantTabs } from './component';
-import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 
-export const RestaurantTabsContainer = ({ activeRestaurantId, onTabClick }) => {
-    const restaurantIds = useSelector(selectRestaurantIds);
-    if (!restaurantIds) return;
+export const RestaurantTabsContainer = () => {
+    const { data: restaurants, isLoading } = useGetRestaurantsQuery();
+
+    if (isLoading) {
+        return <Loader size='100' />;
+    }
+
+    if (!restaurants?.length) {
+        return <div>No restaurants</div>;
+    }
 
     return (
-        <RestaurantTabs
-            restaurantIds={restaurantIds}
-            activeRestaurantId={activeRestaurantId}
-            onTabClick={onTabClick}
-        />
+        <RestaurantTabs restaurants={restaurants} />
     );
 }

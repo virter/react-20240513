@@ -2,12 +2,13 @@
 
 import { Dishes } from '../dishes/component';
 
-export const Menu = ({ dishIds }) => {
-    if (!dishIds) return;
+export const Menu = ({ dishes }) => {
+    if (!dishes?.length) return;
+
     return (
         <div>
             <h3>Menu</h3>
-            <Dishes dishIds={dishIds} />;
+            <Dishes dishes={dishes} />
         </div>
     );
 };
